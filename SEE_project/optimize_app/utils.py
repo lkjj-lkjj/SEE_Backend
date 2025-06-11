@@ -106,6 +106,29 @@ from datetime import datetime, timedelta
 import numpy as np
 
 
+def update_ls_dates(data):
+    """
+    根据每个任务的ES日期和duration天数更新LS日期
+
+    参数:
+    data (list): 包含任务信息的列表
+
+    返回:
+    list: 更新后的任务信息列表
+    """
+    for task in data:
+        # 将ES字符串转换为日期对象
+        es_date = datetime.strptime(task["es"], "%Y-%m-%d")
+
+        # 计算LS日期（ES日期 + duration天）
+        ls_date = es_date + timedelta(days=task["duration"]-1)
+
+        # 将计算出的日期转换回字符串格式并更新LS字段
+        task["ls"] = ls_date.strftime("%Y-%m-%d")
+
+    return data
+
+
 def parse_date(date_str):
     """解析日期字符串为datetime对象"""
     return datetime.strptime(date_str, "%Y-%m-%d")
@@ -270,4 +293,5 @@ if __name__ == "__main__":
     ]
 
     results = resource_smoothing(input_tasks)
+    # print('jieguo',results['optimized_tasks'])
     print_results(results)
