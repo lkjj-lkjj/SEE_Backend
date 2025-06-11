@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    # path('leveling/', leveling_view, name='leveling'),
-    # path('smooth/', smooth_view, name='smooth'),
+    path('Delphi/', Delphi_view, name='Delphi'),
+    path('Expert/', Expert_view, name='Expert'),
+    path('Regression/', Regression_view, name='Regression'),
 ]
