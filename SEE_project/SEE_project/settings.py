@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'corsheaders',  # 跨域请求
     'testapp',
     'User_app',  # 处理登录注册逻辑
+    'optimize_app', # 模块4，优化部分
+    'budget_app',
+    'risk_app',
+    'cost_app',
 ]
 
 MIDDLEWARE = [

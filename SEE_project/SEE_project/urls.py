@@ -22,4 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('testapp.urls')),
     path('user/', include('User_app.urls')),
+    path('optimize/', include('optimize_app.urls')),
+    path('budget/', include('budget_app.urls')),
+    path('cost/', include('cost_app.urls')),
+    path('risk/', include('risk_app.urls')),
 ]
